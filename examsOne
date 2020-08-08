@@ -1,0 +1,26 @@
+using System;
+
+namespace BasketballProtect
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int yearsfee = int.Parse(Console.ReadLine());
+
+            //            Баскетболни кецове – цената им е 40 % по - малка от таксата за една година
+            //   Баскетболен екип – цената му е 20 % по - евтина от тази на кецовете
+            //Баскетболна топка – цената ѝ е 1 / 4 от цената на баскетболния екип
+            //Баскетболни аксесоари – цената им е 1 / 5 от цената на баскетболната топка
+
+            double shoes = yearsfee * 0.60;
+            double protect = shoes * 0.80;
+            double baskBall = protect / 4;
+            double baskAcessories = baskBall / 5;
+
+            double totalPrise = shoes + protect + baskBall + baskAcessories + yearsfee;
+
+            Console.WriteLine($"{totalPrise:f2}");
+        }
+    }
+}
