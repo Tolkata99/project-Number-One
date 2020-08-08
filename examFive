@@ -1,0 +1,49 @@
+using System;
+
+namespace wars
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //            Брой турнири, в които е участвал – цяло число в интервала[1…20]
+            //Начален брой точки в ранглистата - цяло число в интервала[1...4000]
+            //За всеки турнир се прочита отделен ред:
+            //            Достигнат етап от турнира – текст – "W", "F" или "SF"
+
+            int numTurnament = int.Parse(Console.ReadLine());
+            double startNumScore1 = int.Parse(Console.ReadLine());
+            int counterWonsGames = 0;
+            double startNumScore = 0;
+
+            for (int i = 1; i <= numTurnament; i++)
+            {
+                string stage = Console.ReadLine();
+                if(stage == "W")
+                {
+                    startNumScore += 2000;
+                    counterWonsGames++;
+                }
+                else if(stage == "F")
+                {
+                    startNumScore += 1200;
+
+                }
+                else if(stage == "SF")
+                {
+                    startNumScore += 720;
+                }
+            }
+            
+            double prise = startNumScore + startNumScore1;
+            double average = startNumScore / numTurnament;
+            double procent = (counterWonsGames * 1.0) / numTurnament * 100 ;
+                
+
+            Console.WriteLine($"Final points: {prise:f0}");
+            Console.WriteLine($"Average points: {Math.Floor(average)}");
+            Console.WriteLine($"{procent:f2}%");
+        }
+
+    }
+}
