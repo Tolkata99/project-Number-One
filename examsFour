@@ -1,0 +1,76 @@
+using System;
+
+namespace wars
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //            Първоначално се четат два реда:
+            //            Име на първия играч -текст
+            //Име на втория играч -текст
+            //След това, до получаване на команда "End of game", се четат многократно по два реда:
+            //Карта, която дава първият играч-цяло число в интервала[2…9]
+            //Карта, която дава вторият играч -цяло число в интервала[2…9]
+            //При еднакви карти на двамата играчи се прочитат нови два реда(карта, която дава първият и карта, която дава вторият.)
+
+            string nameOne = Console.ReadLine();
+            string nameTwo = Console.ReadLine();
+            double scoreNameOne = 0;
+            double scoreNameTwo = 0;
+            bool isFalse = false;
+
+            double one = 0;
+            double two = 0;
+
+            while (true)
+            {
+                string numOne = Console.ReadLine();
+                if(numOne == "End of game")
+                {
+                    isFalse = true;
+                    break;
+                }
+                int numone = int.Parse(numOne);
+                int numTwo = int.Parse(Console.ReadLine());
+
+                if(numone > numTwo)
+                {
+                   one = numone - numTwo;
+                    scoreNameOne += one;
+                }
+                else if(numone < numTwo)
+                {
+                    two = numTwo - numone;
+                    scoreNameTwo += two;
+                }
+                else if (numone == numTwo)
+                {
+                    Console.WriteLine("Number wars!");
+                    int wars1 = int.Parse(Console.ReadLine());
+                    int wars2 = int.Parse(Console.ReadLine());
+                    if(wars1 > wars2)
+                    {
+                        Console.WriteLine($"{nameOne} is winner with {scoreNameOne} points");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{nameTwo} is winner with {scoreNameTwo} points");
+                    }
+                    break;
+                }
+
+
+            }
+            if(isFalse)
+            {
+                Console.WriteLine($"{nameOne} has {scoreNameOne} points");
+                Console.WriteLine($"{nameTwo} has {scoreNameTwo} points");
+            }
+
+            
+        }
+
+    }
+}
