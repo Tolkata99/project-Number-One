@@ -1,0 +1,80 @@
+using System;
+
+namespace art
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+//            Първи ред – държава – текст("Russia", "Bulgaria" или "Italy")
+//Втори ред – уред - текст("ribbon", "hoop" или "rope")
+            string country = Console.ReadLine();
+            string devise = Console.ReadLine();
+
+            double difficylti = 0;
+            double preformance = 0;
+
+            if(country == "Russia")
+            {
+                if (devise == "ribbon")
+                {
+                    difficylti += 9.1;
+                    preformance += 9.4;
+                }
+                if (devise == "hoop")
+                {
+                    difficylti += 9.3;
+                    preformance += 9.8;
+                }
+                if (devise == "rope")
+                {
+                    difficylti += 9.6;
+                    preformance += 9.0;
+                }
+            }
+            if (country == "Bulgaria")
+            {
+                if (devise == "ribbon")
+                {
+                    difficylti += 9.6;
+                    preformance += 9.4;
+                }
+                if (devise == "hoop")
+                {
+                    difficylti += 9.55;
+                    preformance += 9.75;
+                }
+                if (devise == "rope")
+                {
+                    difficylti += 9.5;
+                    preformance += 9.4;
+                }
+            }
+            if (country == "Italy")
+            {
+                if (devise == "ribbon")
+                {
+                    difficylti += 9.2;
+                    preformance += 9.5;
+                }
+                if (devise == "hoop")
+                {
+                    difficylti += 9.45;
+                    preformance += 9.35;
+                }
+                if (devise == "rope")
+                {
+                    difficylti += 9.7;
+                    preformance += 9.150;
+                }
+            }
+            double result = difficylti + preformance;
+            double resultt = 20 - result;
+            double reulttt = (resultt / 20) * 100;
+
+            Console.WriteLine($"The team of {country} get {result:f3} on {devise}.");
+            Console.WriteLine($"{reulttt:f2}%");
+
+        }
+    }
+}
