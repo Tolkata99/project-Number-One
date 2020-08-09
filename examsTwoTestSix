@@ -1,0 +1,65 @@
+using System;
+using System.Xml;
+
+namespace basketballTournaments
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //            Име на турнира – текст
+            //За всеки турнир n на брой мача – цяло число в интервала[1…15]
+            //За всеки мач се четат по два реда:
+            //Точки, вкарани от отбора на Деси – цяло число в интервала от[0…150]
+            //Точки, вкарани от противниковия отбор – цяло число в интервала от[0…150]
+
+            
+
+            int counterDesiWon = 0;
+            int CounterDesiFals = 0;
+
+            int counterAllMatches = 0;
+            while (true)
+            {
+                string nameTournament = Console.ReadLine();
+               
+
+                int counter = 0;
+                if(nameTournament == "End of tournaments")
+                {
+                    break;
+                }
+                int numberMatch = int.Parse(Console.ReadLine());
+
+                for (int i = 1; i <= numberMatch; i++)
+                {
+                    double desi = 0;
+                    double opponent = 0;
+                    counter++;
+                    double scoreTeamsDesi = double.Parse(Console.ReadLine());
+                    desi += scoreTeamsDesi;
+                    double scoreTeamsOpponent = double.Parse(Console.ReadLine());
+                    opponent += scoreTeamsOpponent;
+
+                    if(desi > opponent)
+                    {
+                        double difference = desi - opponent;
+                        Console.WriteLine($"Game {counter} of tournament {nameTournament}: win with {difference} points.");
+                        counterDesiWon++;
+                    }
+                    else
+                    {
+                        double difference2 = opponent - desi;
+                        Console.WriteLine($"Game {counter} of tournament {nameTournament}: lost with {difference2} points.");
+                        CounterDesiFals++;
+                    }
+                    counterAllMatches++;
+                }
+            }
+            double resultWon = (counterDesiWon * 1.0 / counterAllMatches  ) * 100.0;
+                double resultFals = (CounterDesiFals * 1.0 / counterAllMatches  ) * 100.0;
+            Console.WriteLine($"{resultWon:f2}% matches win");
+            Console.WriteLine($"{resultFals:f2}% matches lost");
+        }
+    }
+}
