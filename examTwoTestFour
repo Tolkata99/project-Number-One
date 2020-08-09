@@ -1,0 +1,63 @@
+using System;
+using System.Runtime.ConstrainedExecution;
+
+namespace darts
+
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string nameGamer = Console.ReadLine();
+            int counterFals = 0;
+            int counterWons = 0;
+            double dartsScore = 301;
+            while (true)
+            {
+                string pole = Console.ReadLine();
+                if(pole == "Retire")
+                {
+                    break;
+                }
+
+                 double score = double.Parse(Console.ReadLine());
+                if (pole == "Single")
+                {
+                    score *= 1;
+                }
+                if (pole == "Double")
+                {
+                    score *= 2;
+                }
+                if (pole == "Triple")
+                {
+                    score *= 3;
+                }
+                if (score <= dartsScore)
+                {
+                        dartsScore -= score;
+                    counterWons++;
+                }  
+                else
+                {
+                    counterFals++;
+                }
+
+                if(dartsScore == 0)
+                {
+                    break;
+                }
+
+            }
+            if (dartsScore == 0)
+            {
+                Console.WriteLine($"{nameGamer} won the leg with {counterWons} shots.");
+            }
+            else
+            {
+                Console.WriteLine($"{nameGamer} retired after {counterFals} unsuccessful shots.");
+            }
+                
+        }
+    }
+}
