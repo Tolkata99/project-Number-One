@@ -1,0 +1,33 @@
+using System;
+
+namespace tennis_equipment
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //            Цена на една тенис ракета – реално число в интервала[0.00…100000.00]
+            //Брой тенис ракети - цяло число в интервала[0…100]
+            //Брой чифтове маратонки - цяло число в интервала[0…100]
+
+            double PrisetennisRocket = double.Parse(Console.ReadLine());
+            int numRocket = int.Parse(Console.ReadLine());
+            int numShoes = int.Parse(Console.ReadLine());
+
+            double totalPriseRocket = PrisetennisRocket * numRocket;
+
+            double oneShoes = PrisetennisRocket / 6;
+            double allShoes = oneShoes * numShoes;
+
+            double otherQuipment = (totalPriseRocket + allShoes) * 0.2;
+
+            double totalPrise = otherQuipment + totalPriseRocket + allShoes;
+
+            double priseDjokovich = totalPrise / 8;
+            double priseSponsor = totalPrise * 7 / 8;
+
+            Console.WriteLine($"Price to be paid by Djokovic {Math.Floor(priseDjokovich)}");
+            Console.WriteLine($"Price to be paid by sponsors {Math.Ceiling(priseSponsor)}");
+        }
+    }
+}
