@@ -1,0 +1,88 @@
+using System;
+using System.Runtime.ConstrainedExecution;
+
+namespace WordSnockerChampionate
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //            Етап на първенството – текст - “Quarter final ”, “Semi final” или “Final”
+            //Вид на билета – текст - “Standard”, “Premium” или “VIP”
+            //Брой билети – цяло число в интервала[1 … 30]
+            //Снимка с трофея – символ – 'Y'(да) или 'N'(не)
+
+            string step = Console.ReadLine();
+            string kindTicket = Console.ReadLine();
+            int numTickets = int.Parse(Console.ReadLine());
+            string pictureFromTrofei = Console.ReadLine();
+
+            double totalPrise = 0;
+            if(step == "Quarter final")
+            {
+                if(kindTicket == "Standard")
+                {
+                    totalPrise += 55.50;
+                }
+                else if(kindTicket == "Premium")
+                {
+                    totalPrise += 105.20;
+                }
+                else if (kindTicket == "VIP")
+                {
+                    totalPrise += 118.90;
+                }
+            }
+            else if(step == "Semi final")
+            {
+                if (kindTicket == "Standard")
+                {
+                    totalPrise += 75.88;
+                }
+                else if (kindTicket == "Premium")
+                {
+                    totalPrise += 125.22;
+                }
+                else if (kindTicket == "VIP")
+                {
+                    totalPrise += 300.40;
+                }
+            }
+            else if(step == "Final")
+            {
+                if (kindTicket == "Standard")
+                {
+                    totalPrise += 110.10;
+                }
+                else if (kindTicket == "Premium")
+                {
+                    totalPrise += 160.66;
+                }
+                else if (kindTicket == "VIP")
+                {
+                    totalPrise += 400;
+                }
+
+
+            }
+            double result = totalPrise * numTickets;
+            if (result > 4000)
+            {
+                result *= 0.75;
+            }
+            else if (result > 2500)
+            {               
+                result *= 0.9;
+            }
+
+            
+           if(pictureFromTrofei == "Y" && result < 4000)
+            {
+               double picture= 40 * numTickets;
+                result += picture;
+            }
+
+            Console.WriteLine($"{result:f2}");
+        }
+    }
+}
